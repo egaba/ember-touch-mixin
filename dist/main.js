@@ -45,13 +45,23 @@ define("touch-mixin",
      */
 
     var TouchMixin = Ember.Mixin.create(Ember.Evented, {
+      _defaultGestures: ['touch', 'drag', 'release', 'tap', 'doubletap'],
+
       /**
        * These are the HammerJS gestures to register with the component / view.
        *
        * @property {Array} gestures
-       * @required
        */
-      gestures: Ember.required(),
+      gestures: Ember.computed.defaultTo('_defaultGestures'),
+
+      /**
+       * Defers the setup so that the component/view has a chance to pass in custom options before
+       * `setupTouchGestures` is called. This must call explicitly call `setupTouchGestures`.
+       *
+       * @method deferredSetup
+       * @return {Promise}
+       */
+      deferredSetup: null,
 
       /**
        * Sets up the touch gestures acquired from the `gesture` array. This should be called
@@ -138,6 +148,10 @@ define("touch-mixin",
 
         return false;
       },
+
+      _decideDeferredSetup: function() {
+        return this.deferredSetup && this.deferredSetup() || this.setupTouchGestures();
+      }.on('didInsertElement'),
 
       _ignoreSelectors: null,
     });
