@@ -1,0 +1,16 @@
+{
+  "name": "ember-touch-mixin",
+  "version": "1.0.0",
+  "description": "A HammerJS mixin for Ember components",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node_modules/.bin/bower install"
+  },
+  "author": "Edward Gaba <egaba88@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "~1.2.8",
+    "gulp": "^3.5.5",
+    "gulp-es6-module-transpiler": "^0.1.0"
+  }
+}

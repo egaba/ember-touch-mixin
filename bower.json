@@ -1,0 +1,19 @@
+{
+  "name": "ember-touch-mixin",
+  "version": "1.0.0",
+  "authors": [
+    "Edward Gaba <egaba88@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "bower_components",
+    "node_modules",
+    "**/.*",
+    "package.json",
+    "gulpfile.js"
+  ],
+  "dependencies": {
+    "ember": "^1.3.0",
+    "hammerjs": "~1.0.7"
+  }
+}
