@@ -15,18 +15,13 @@ bower install ember-touch-mixin -S
 <script src="/bower_components/ember-touch-mixin/dist/main.js"></script>
 ```
 
-## Usage:
-1) Set up the `gesture` property. This needs to be an array of HammerJS gestures.
+### Usage:
+Set up the `gesture` property. This needs to be an array of HammerJS gestures, but defaults to `['tap', 'doubletap', 'touch', 'release', 'drag']`.
 
 Example:
 ```
 gestures: ['tap', 'touch', 'release', 'drag']
 ```
-
-2) Call `setupTouchGestures` in a `didInsertElement` hook.
-
-Event teardown is automatically invoked on `willDestroyElement`. There is no need to call
-`teardownTouchGestures` unless you're implementing `Ember.Freezable`.
 
 Gestures as methods are called on the `Ember.run` loop:
 ```
