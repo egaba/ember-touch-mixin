@@ -17,11 +17,6 @@ define("touch-mixin",
      * gestures: ['tap', 'touch', 'release', 'drag']
      * ```
      *
-     * 2) Call `setupTouchGestures` in a `didInsertElement` hook.
-     *
-     * Event teardown is automatically invoked on `willDestroyElement`. There is no need to call
-     * `teardownTouchGestures` unless you're implementing `Ember.Freezable`.
-     *
      * Gestures as methods are called on the `Ember.run` loop:
      * ```
      * drag: function(e) {
@@ -83,11 +78,12 @@ define("touch-mixin",
       setupTouchGestures: function(options) {
         var target = this;
         var $this = this.$();
+        var el = $this[0];
 
         options = options || {};
 
         this.get('gestures').forEach(function(gesture) {
-          hammer($this).on(gesture, function(e) {
+          hammer(el).on(gesture, function(e) {
             var method = target[gesture];
 
             if (method) {
@@ -118,9 +114,10 @@ define("touch-mixin",
       teardownTouchGestures: function() {
         var target = this;
         var $this = this.$();
+        var el = $this[0];
 
         this.get('gestures').forEach(function(gesture) {
-          hammer($this).off(gesture);
+          hammer(el).off(gesture);
           $this.find(target.get('_ignoreSelectors')).off(gesture);
         });
       }.on('willDestroyElement'),
