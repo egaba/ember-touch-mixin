@@ -15,7 +15,7 @@ bower install ember-touch-mixin -S
 <script src="/bower_components/ember-touch-mixin/dist/main.js"></script>
 ```
 
-### Usage:
+### Usage
 Set up the `gesture` property. This needs to be an array of HammerJS gestures, but defaults to `['tap', 'doubletap', 'touch', 'release', 'drag']`.
 
 Example:
@@ -37,4 +37,23 @@ handleDrag(e) {
     // code
   });
 }.on('drag', 'touch', 'release')
+```
+
+### Contributing
+Clone this repo: `git@github.com:brandingbrand/ember-touch-mixin.git`
+
+Install and link to Bower:
+```
+npm install && bower install
+bower link
+```
+
+In your project, link to the local repo:
+```
+bower link ember-touch-mixin
+```
+
+After you make your edits, create a `dist` build:
+```
+gulp
 ```
