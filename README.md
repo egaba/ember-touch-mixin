@@ -53,7 +53,7 @@ In your project, link to the local repo:
 bower link ember-touch-mixin
 ```
 
-After you make your edits, create a `dist` build:
+Run `gulp` to watch and compile your assets as you make edits:
 ```
 gulp
 ```
