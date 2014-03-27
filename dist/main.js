@@ -103,6 +103,8 @@ define("touch-mixin",
             });
           }
         });
+
+        return true;
       },
 
       /**

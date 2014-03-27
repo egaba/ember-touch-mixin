@@ -44,7 +44,7 @@ Clone this repo: `git@github.com:brandingbrand/ember-touch-mixin.git`
 
 Install and link to Bower:
 ```
-npm install && bower install
+npm install
 bower link
 ```
 
