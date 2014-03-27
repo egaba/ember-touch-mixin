@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var es6ModuleTranspiler = require('gulp-es6-module-transpiler');
 
-
 gulp.task('compile', function() {
   gulp.src('./lib/main.js')
     .pipe(es6ModuleTranspiler({
