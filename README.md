@@ -16,21 +16,33 @@ bower install ember-touch-mixin -S
 ```
 
 ### Usage
-Set up the `gesture` property. This needs to be an array of HammerJS gestures, but defaults to `['tap', 'doubletap', 'touch', 'release', 'drag']`.
+This is automatically registered with your application as `touch-mixin`. Here is some example usage with a project set up with ES6 modules:
+```js
+import TouchMixin from 'touch-mixin';
 
-Example:
-```
-gestures: ['tap', 'touch', 'release', 'drag']
+var Carousel = Ember.View.extend(TouchMixin, {
+  gestures: ['tap', 'doubletap', 'drag'],
+  
+  handleSwipe: function() {
+    // code
+  }.on('touch, drag, release')
+});
+
+export default Carousel;
 ```
 
-Gestures as methods are called on the `Ember.run` loop:
+1) Import this as a mixin for any View or Component.
+
+2) Set up the `gesture` property. This needs to be an array of HammerJS gestures, but defaults to `['tap', 'doubletap', 'touch', 'release', 'drag']`.
+
+3a) Place code within the gesture; the gesture is now registered as a method. This is called within the `Ember.run` loop:
 ```
 drag: function(e) {
  // called within `Ember.run`
 }
 ```
 
-However, if you are listening to the gesture, you will need to handle the run loop manually:
+3b) However, if you are listening to the gesture, you will need to handle the run loop manually:
 ```
 handleDrag(e) {
   Ember.run(function() {
