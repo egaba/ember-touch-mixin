@@ -23,9 +23,17 @@ import TouchMixin from 'touch-mixin';
 var Carousel = Ember.View.extend(TouchMixin, {
   gestures: ['tap', 'doubletap', 'drag'],
   
-  handleSwipe: function() {
+  tap: function(e) {
+    // `e` returns the HammerJS event
+  },
+  
+  doubletap: function(e) {
     // code
-  }.on('touch, drag, release')
+  },
+  
+  drag: function(e) {
+    // code
+  }
 });
 
 export default Carousel;
