@@ -10,8 +10,9 @@ For full documentation on how to use the gestures, please see
 bower install ember-touch-mixin -S
 ```
 
-2) Place `./dist/main.js` into a script tag.
+2) Place `./dist/main.js` and `hammer.js` into a script tag.
 ```
+<script src="/bower_components/hammerjs/hammer.js"></script>
 <script src="/bower_components/ember-touch-mixin/dist/main.js"></script>
 ```
 
